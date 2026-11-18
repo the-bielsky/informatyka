@@ -1,10 +1,14 @@
 
-numbers = [ 5, 2, 9, 1, 5, 6, 3 , 8 ]
+numbers = [5, 2, 9, 1, 5, 6, 3, 8]
 
-min_id= numbers[1]
 
 for i in range(len(numbers)):
-    if numbers[i] < min_id:
-        min_id = numbers[i]
+    byla_zmiana = False
+    for j in range(len(numbers) - i - 1):
+        if numbers[j] > numbers[j + 1]:
+            numbers[j], numbers[j + 1] = numbers[j + 1], numbers[j]
+            byla_zmiana = True
+    if not byla_zmiana:
+        break
 
 print(numbers)
